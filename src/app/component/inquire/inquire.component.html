@@ -1,0 +1,168 @@
+<div class="homePage">
+  <form>
+    <div class="row">
+      <div class="col-12 col-md-5">
+        <!-- 1 -->
+        <div class="form-group row">
+          <label for="staticEmail" class="col-3 col-md-5 col-form-label text-right">編碼:</label>
+          <div class="col-8 col-md-5">
+            <input type="number" class="form-control" id="staticEmail">
+          </div>
+        </div>
+        <!-- 2 -->
+        <div class="form-group row">
+          <label for="staticEmail" class="col-3 col-md-5 col-form-label text-right">住宿人員Node ID:</label>
+          <div class="col-8 col-md-7">
+            <input type="text" class="form-control" id="">
+          </div>
+        </div>
+
+      </div>
+      <div class="col-12 col-md-4">
+        <!-- 3 -->
+        <div class="form-group row">
+          <label for="staticEmail" class="col-3 col-md-4 col-form-label text-right">異常項目:</label>
+          <div class="col-8 col-md-6">
+            <input type="number" class="form-control" id="staticEmail">
+          </div>
+        </div>
+        <!-- 4 -->
+        <div class="form-group row">
+          <label for="staticEmail" class="col-3 col-md-4 col-form-label text-right">異常項目:</label>
+          <div class="col-8 col-md-5">
+            <input type="number" class="form-control" id="staticEmail">
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-3">
+        <!-- 5 -->
+        <div class="form-group row">
+          <label for="staticEmail" class="col-3 col-md-3 col-form-label text-right">&</label>
+          <div class="col-8 col-md-6">
+            <input type="number" class="form-control" id="staticEmail">
+          </div>
+        </div>
+        <!-- 6 -->
+        <div class="form-group row">
+          <label for="staticEmail" class="col-3 col-md-3 col-form-label text-right">棟別:</label>
+          <div class="col-3 col-md-3" style="padding-right: 0px !important">
+            <input type="number" class="form-control" id="">
+          </div>
+          <div class="col-4 col-md-4 col-form-label " style="padding-right: 0px !important">
+            <button>選擇</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <!-- row 2 -->
+    <div class="row">
+      <div class="col-12 col-md-5">
+        <div class="form-group row">
+          <label for="staticEmail" class="col-3 col-md-5 col-form-label text-right">區域:</label>
+          <div class="col-8 col-md-7 col-form-label">
+            <div class="row">
+              <label class="radio col-5 col-md-5">
+                <input type="radio" name="r" value="1" checked>
+                <span>寇室</span>
+              </label>
+              <label class="radio col-7 col-md-7">
+                <input type="radio" name="r" value="2">
+                <span>公用區域</span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-4">
+        <div class="form-group row">
+          <label for="staticEmail" class="col-3 col-md-4 col-form-label text-right">異常項目:</label>
+          <div class="col-5 col-md-5">
+            <input type="number" class="form-control" id="staticEmail">
+          </div>
+          <div class="col-3 col-md-3 col-form-label">
+            <button>選擇</button>
+          </div>
+
+        </div>
+      </div>
+      <div class="col-12 col-md-3">
+        <div class="form-group row">
+          <div class="col-8 col-md-8">
+            <input type="text" class="form-control" id="staticEmail">
+          </div>
+          <div class="col-4 col-md-4 col-form-label">
+            <button>選擇</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <!-- row 3 -->
+    <div class="row">
+      <div class="col-12 col-md-5">
+        <div class="row">
+          <p class="col-3 col-md-5 col-form-label text-right">待接件:</p>
+          <div class="col-2 col-md-2">
+            <input type="checkbox" id="test">
+            <label for="test"></label>
+          </div>
+        </div>
+
+      </div>
+      <div class="col-12 col-md-4">
+        <div class="row">
+          <p class="col-3 col-md-4 col-form-label text-right">待接件:</p>
+          <div class="col-2 col-md-2">
+            <input type="checkbox" id="test2">
+            <label for="test2"></label>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-3">
+        <div class="row">
+          <p class="col-3 col-md-3 col-form-label text-right">接件:</p>
+          <div class="col-2 col-md-2">
+            <input type="checkbox" id="test3">
+            <label for="test3"></label>
+          </div>
+          <div class="col-4 col-md-6 col-form-label">
+            <button class="float-right">選擇</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+
+  <div class="table-wrapper">
+      <table class="fl-table">
+          <thead>
+              <tr>
+                  <th *ngFor ="let inquire of listQuire"> {{inquire.title}}</th>
+                </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor ="let inquire of listQuire">
+                <td>{{inquire.title}}</td>
+                <td>{{inquire.title}}</td>
+                <td>{{inquire.title}}</td>
+                <td>{{inquire.title}}</td>
+                <td>{{inquire.title}}</td>
+                <td>{{inquire.title}}</td>
+                <td>{{inquire.title}}</td>
+                <td>{{inquire.title}}</td>
+                <td>{{inquire.title}}</td>
+                <td>{{inquire.title}}</td>
+                <td>{{inquire.title}}</td>
+                <td>{{inquire.title}}</td>
+                <td>{{inquire.title}}</td>
+                <td>{{inquire.title}}</td>
+                
+              </tr>
+            </tbody>
+      </table>
+    
+  </div>
+
+  
+</div>

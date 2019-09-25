@@ -1,0 +1,50 @@
+.topInput{
+    margin-left: 30px;
+    margin-right: 30px;
+}
+.marginTop{
+    margin-top: 30px;
+}
+form{
+    margin-left: 0px;
+    margin-right: 0px;
+}
+.text-right {
+    text-align: right!important;
+}
+label.btn span {
+    font-size: 14px ;
+  }
+  
+  /* Style buttons */
+.btn {
+    background-color: white; /* Blue background */
+    border: 0px; /* Remove borders */
+    color: white; /* White text */
+    cursor: pointer; /* Mouse pointer on hover */
+    margin-left: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  }
+  button:active{
+    outline: none !important;;
+  }
+  @media only screen and (max-width: 768px) {
+    .text-right{
+        text-align: left!important;
+     }
+     .marginTop{
+        margin-top: 5px;
+    }
+    .topInput{
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+  }
+
+  // shawdow
+  .box {
+    -webkit-box-shadow: 0 10px 6px -6px #777;
+    -moz-box-shadow: 0 10px 6px -6px #777;
+         box-shadow: 0 10px 6px -6px #777;
+  }
+  

@@ -1,0 +1,133 @@
+<div class="homePage">
+
+  <div class="col-12 box">
+    <div class="col-12 col-md-8 row" >
+      <button class="btn col-2 col-md-1"><img src="assets/image/xinzeng.png" /></button>
+      <button class="btn col-2 col-md-1"><img src="assets/image/xinzeng.png" /></button>
+      <button class="btn col-2 col-md-1"><img src="assets/image/xinzeng.png" /></button>
+      <button class="btn col-2 col-md-1" (click) ="onBack()"><img src="assets/image/xinzeng.png" /></button>
+      <button class="btn col-2 col-md-1"><img src="assets/image/xinzeng.png" /></button>
+    </div>
+  </div>
+  <form [formGroup]="inputForm">
+  
+    <div class="row topInput">
+
+      <div class="col-12 col-sm-12 col-md-6 col-lg-6 marginTop">
+        <div class="form-group row">
+          <label for="staticEmail" class="col-3 col-md-4 col-form-label text-right">編碼:</label>
+          <div class="col-8 col-md-5">
+            <input type="number" class="form-control" id="staticEmail" formControlName="telephone">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="staticEmail" class="col-3 col-md-4 col-form-label text-right">住宿人員Node ID:</label>
+          <div class="col-8 col-md-6">
+            <input type="text" class="form-control" id="" formControlName="manhanvien" (keydown.Tab)="onKey($event)">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="staticEmail" class="col-3 col-md-4 col-form-label text-right">聯絡電話:</label>
+          <div class="col-8 col-md-7">
+            <input type="number" class="form-control" id="" formControlName="contactnumber">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="staticEmail" class="col-3 col-md-4 col-form-label text-right">宿舍管理人員:</label>
+          <div class="col-4 col-md-3">
+            <input type="text" class="form-control" id="">
+          </div>
+          <div class="col-5 col-md-5">
+            <input type="text" class="form-control" id="">
+          </div>
+        </div>
+      </div>
+      <!-- 反應日期 -->
+      <div class="col-12 col-md-6 col-lg-6 marginTop">
+        <div class="form-group row">
+          <label for="staticEmail" class="col-3 col-md-4 col-form-label text-right">反應日期:</label>
+          <div class="col-8 col-md-7">
+            <input type="text" class="form-control" id="">
+          </div>
+        </div>
+        <!-- 寇室别 -->
+        <div class="form-group row">
+          <label for="staticEmail" class="col-3 col-md-4 col-form-label text-right">寇室别:</label>
+          <div class="col-4 col-md-3">
+            <input type="text" class="form-control" id="">
+          </div>
+          <div class="col-4 col-md-5 col-form-label text-left">
+            <span>(如： E301)</span>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="staticEmail" class="col-3 col-md-4 col-form-label text-right">姓名:</label>
+          <div class="col-8 col-md-8">
+            <input type="text" class="form-control" id="">
+          </div>
+        </div>
+      </div>
+      <!-- <div class="col-sm-12"> -->
+      <div class="col-12 col-md-6 col-lg-6">
+        <div class="form-group row">
+          <label for="staticEmail" class="col-3 col-md-4 col-form-label text-right">區域:</label>
+          <div class="col-8 col-md-8 col-form-label">
+            <div class="row">
+              <label class="radio col-5 col-md-4">
+                <input type="radio" name="r" value="1" checked>
+                <span>寇室</span>
+              </label>
+              <label class="radio col-7 col-md-6">
+                <input type="radio" name="r" value="2">
+                <span>公用區域</span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-6">
+        <div class="form-group row">
+          <label for="staticEmail" class="col-3 col-md-4 col-form-label text-right">棟別:</label>
+          <div class="col-4 col-md-4">
+            <input type="text" class="form-control" id="">
+          </div>
+          <div class="col-5 col-md-4 col-form-label">
+            <button>選擇</button>
+          </div>
+
+        </div>
+      </div>
+      <div class="col-12  col-md-12 col-lg-12">
+        <div class="form-group row">
+          <label for="staticEmail" class="col-3 col-md-2 col-form-label text-right">低點:</label>
+          <div class="col-9 col-md-10">
+            <input type="text" class="form-control" id="">
+          </div>
+        </div>
+      </div>
+      <div class="col-12">
+        <div class="form-group row ">
+          <label for="staticEmail" class="col-3 col-md-2 col-form-label text-right">異常項目:</label>
+          <div class="col-2 col-md-1" style="padding-right: 0px !important">
+            <input type="number" class="form-control" id="">
+          </div>
+          <div class="col-3 col-md-1 col-form-label " style="padding-right: 0px !important">
+            <button>選擇</button>
+          </div>
+          <div class="col-4 col-md-3" style="padding-left: 0px !important">
+            <input type="text" class="form-control" id="">
+          </div>
+        </div>
+      </div>
+      <div class="col-12">
+        <div class="form-group row">
+          <label for="staticEmail" class="col-3 col-md-2  col-form-label text-right">異常說明:</label>
+          <div class="col-9 col-md-10">
+            <input type="text" class="form-control" id="">
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </form>
+</div>
