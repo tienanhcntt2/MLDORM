@@ -3,7 +3,24 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  OIDC: {
+    baseUrl: 'http://localhost:4200',
+    authorizationEndpoint: '/login',
+    tokenEndpoint: '/connect/token',
+    urlUser: 'http://10.199.15.95/authorize',
+    userinfoEndpoint: '/connect/userinfo',
+    Paramaters: {
+      'url': 'http://localhost:4200/login',
+      'scope': 'openid',
+      'client_id': 'MLDORM',
+      'clientSecret': '',
+      'redirect_uri': 'http://localhost:4300',
+      'response_type': 'code id_token token',
+      'nonce': 'n-0S6_WzA2Mj'
+    }
+  },
+  Languager: '/assets/i18n/'
 };
 
 /*

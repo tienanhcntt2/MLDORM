@@ -1,0 +1,38 @@
+.not-focusable:focus {
+    outline: none;
+    box-shadow: none;
+}
+.iconUser{
+    float: left;
+    height: 40px;
+    text-transform: uppercase;
+    background-image: url(/assets/image/user.png);
+    background-position: left center;
+    background-repeat: no-repeat;
+    margin-right: 20px;
+    padding-left: 45px;
+    a{
+        text-decoration: none;
+        color: white;
+        font-family:'UTM Avo';
+        height: 100%;
+        display: flex;
+        justify-content: center; /* align horizontal */
+        align-items: center; /* align vertical */
+        cursor: pointer;
+        
+    }
+    span{
+        color: white;
+        font-family:'UTM Avo';
+        height: 100%;
+    
+        display: flex;
+        justify-content: center; /* align horizontal */
+        align-items: center; /* align vertical */
+        cursor: pointer;
+    }
+  a:hover{
+      color: red;
+  }
+}

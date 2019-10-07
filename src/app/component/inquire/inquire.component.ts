@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { InquireService, Inquire } from 'src/app/model/inquire';
+import { InquireService, Inquire, NameHeader } from 'src/app/model/inquire';
+import { ConfigDataService } from 'src/app/Sevice/config-data.service';
+import { DataDemo } from 'src/app/model/DataDemo';
 
 @Component({
   selector: 'app-inquire',
@@ -8,11 +10,17 @@ import { InquireService, Inquire } from 'src/app/model/inquire';
 })
 export class InquireComponent implements OnInit {
 
-  listQuire: Inquire[];
-  constructor(private inquireService:InquireService) { }
+  private listData:DataDemo[] =[];
+  private listHeader : NameHeader[] = [];
+
+  constructor(private inquireService:InquireService, private conFigData: ConfigDataService) { }
 
   ngOnInit() {
-    this.listQuire = this.inquireService.getListInquire();
+   
+    this.listHeader = this.inquireService.getListHeader();
+    this.conFigData.getProjectNormal().subscribe(data =>{
+      this.listData = data;
+   });
   }
 
 }

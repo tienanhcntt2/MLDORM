@@ -17,16 +17,79 @@ label.btn span {
   }
   
   /* Style buttons */
-.btn {
+  .btnClick{
     background-color: white; /* Blue background */
-    border: 0px; /* Remove borders */
+    border: 1px white solid; /* Remove borders */
     color: white; /* White text */
     cursor: pointer; /* Mouse pointer on hover */
     margin-left: 5px;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    padding: 3px;
+  }
+.btn {
+    background-color: white; /* Blue background */
+    border: 1px grey solid; /* Remove borders */
+    color: white; /* White text */
+    cursor: pointer; /* Mouse pointer on hover */
+    margin-left: 5px;
+
   }
   button:active{
     outline: none !important;;
+  }
+  // seach in popup of input
+  .mldorm_seach{
+    width: 200px;
+    overflow: hidden;
+  }
+  .btn-sm{
+    width: 35px;
+    height: 35px;
+  }
+  .mldorm_table_room{
+    margin-top: 5px;
+  }
+  .fixed_header{
+    position: fixed;
+    top: 0;
+  
+    background: gray;
+    left: 0;
+    width: 100%; 
+  }
+
+  // input seach
+  .inputSeach{
+    border-radius: 0px;
+    border: 1px grey solid;
+    width: 100%;
+  }
+  .header_seach{
+    background: grey;
+  }
+  td:hover{
+    cursor: pointer;
+  }
+  tr:active{
+    background: #38bdff;
+  }
+  .anSeach{
+    visibility: hidden;
+  }
+  .showSeach{
+    visibility:visible;
+  }
+  // seach location
+
+  .seach_location{
+    width: 600px;
+    margin: auto;
+    
+    height: 250px;
+  }
+  .header_location{
+    background: #C7CEDF;
+    padding: 10px;
+    height: 50px;
   }
   @media only screen and (max-width: 768px) {
     .text-right{
@@ -47,4 +110,40 @@ label.btn span {
     -moz-box-shadow: 0 10px 6px -6px #777;
          box-shadow: 0 10px 6px -6px #777;
   }
-  
+  // custom input
+
+input{
+  border-radius: 2px;
+  border: 1px grey solid;
+
+}
+input:disabled{
+  background: #dddddd;
+  border: none;
+}
+.ng-valid[required], .ng-valid.required  {
+  border-left: 5px solid #42A948; /* green */
+}
+
+
+// scroll
+
+ /* width */
+ ::-webkit-scrollbar {
+  width: 0px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #1a607e; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #1491d0; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #38bdff;
+}

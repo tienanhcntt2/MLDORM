@@ -1,0 +1,12 @@
+[
+    {
+        "nameLocation" :"走廊",
+        "stt" :1
+    },{
+        "nameLocation" :"樓梯",
+        "stt" :2
+    },{
+        "nameLocation" :"平台",
+        "stt" :3
+    }
+]

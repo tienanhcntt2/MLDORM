@@ -1,11 +1,50 @@
 <header class="vertical-center">
-  <div class="container my-auto pl-0 pr-0" >
-      <div class="row justify-content-end ">
+  <div class="container_home_mldorm my-auto pl-0 pr-0"  >
+      <!-- <div class="row justify-content-start ">
           <div class="col-md-3 col-sm-6">
-             <div class="float-right">
+             <div class="float-left">
                 <img class="img-fluid" src="assets/image/logo.png" />
              </div>
           </div>
-      </div>
+      </div> -->
+      
+    <div class="row align-self-center no-gutters" >
+        <div class="col-md-6">
+            <div class="float-left">
+                <img class="img-fluid" src="assets/image/logo.png" />
+             </div>
+          </div>
+        <div class="col-md-6 align-self-center">
+            <div class="row no-gutters h-100">
+              <div class="col-8 align-self-center " style="padding-right: 20px">
+                 
+                  <div class="iconUser float-right">
+                      <a (click)="clickLogin()" *ngIf="showLogin" class="text-right">Login </a>
+                      <button *ngIf="!showLogin" class="btn dropdown-toggle not-focusable" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          hello
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                          <button class="dropdown-item" type="button" (click)="functionlogout()">LOGOUT</button>
+                        </div>
+                    </div>
+              </div>
+              <div class="col-3 text-right" style="border-left: aqua 1px solid">
+                  <div class="dropdown language" >
+                      <button class="btn dropdown-toggle not-focusable" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: white">
+                        <img src={{lag.imagePath}} style="padding-right: 10px;"/>{{lag.name}}
+                      </button>
+                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a *ngFor ="let language of languages;let i = index" (click)="selectLanguage(i)" class="dropdown-item">
+                          <img src={{language.imagePath}} style="padding-right: 10px;" /> {{language.name}}
+                        </a>
+                       
+                      </div>
+                    </div>
+                </div>
+             </div>
+          </div>
+    
+    </div>
+
   </div>
 </header>

@@ -1,0 +1,18 @@
+[
+    {
+        "nameLocation" :"交誼廳",
+        "stt" :1
+    },{
+        "nameLocation" :"洗衣間",
+        "stt" :2
+    },{
+        "nameLocation" :"厠所",
+        "stt" :3
+    },{
+        "nameLocation" :"淋浴間",
+        "stt" :4
+    },{
+        "nameLocation" :"開放空間",
+        "stt" :5
+    }
+]

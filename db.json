@@ -1,0 +1,304 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "projectAdnomalPrivate": [
+    {
+      "id": 1,
+      "name": "渗漏水"
+    },
+    {
+      "id": 2,
+      "name": "有線電視ADSL"
+    },
+    {
+      "id": 3,
+      "name": "浴室設施"
+    }
+  ],
+  "projectAdnomalPublic": [
+    {
+      "id": 1,
+      "name": "渗漏水 1"
+    },
+    {
+      "id": 2,
+      "name": "有線電視ADSL 1"
+    },
+    {
+      "id": 3,
+      "name": "浴室設施 1"
+    }
+  ],
+  "dataDemo": [
+    {
+      "shape": "待接",
+      "Numbering": 34343,
+      "reactionDate": "2019/10/04",
+      "dormitoryStaff": "陳庭俊",
+      "dormitoryEast": "D",
+      "location": "",
+      "abnormal": "1",
+      "abnormalName": "渗漏水",
+      "description": "ewewewewe",
+      "telephoneContact": "01689935914",
+      "managerStaff": "",
+      "dateofacceptance": "",
+      "Fillintheday": "",
+      "Actualday": "",
+      "id": 1
+    },
+    {
+      "shape": "待接",
+      "Numbering": 343943,
+      "reactionDate": "2019/10/04",
+      "dormitoryStaff": "潘國親",
+      "dormitoryEast": "D",
+      "location": "公用區域4F楼",
+      "abnormal": "2",
+      "abnormalName": "有線電視ADSL 1",
+      "description": "dsdsdsdsds",
+      "telephoneContact": "01689935914",
+      "managerStaff": "",
+      "dateofacceptance": "",
+      "Fillintheday": "",
+      "Actualday": "",
+      "id": 2
+    },
+    {
+      "shape": "待接",
+      "Numbering": 343943,
+      "reactionDate": "2019/10/04",
+      "dormitoryStaff": "潘國親",
+      "dormitoryEast": "D",
+      "location": "公用區域4F楼",
+      "abnormal": "2",
+      "abnormalName": "有線電視ADSL 1",
+      "description": "dsdsdsdsds",
+      "telephoneContact": "01689935914",
+      "managerStaff": "",
+      "dateofacceptance": "",
+      "Fillintheday": "",
+      "Actualday": "",
+      "id": 3
+    },
+    {
+      "shape": "待接",
+      "Numbering": 54545454,
+      "reactionDate": "2019/10/04",
+      "dormitoryStaff": "潘國親",
+      "dormitoryEast": "D",
+      "location": "公用區域4F楼",
+      "abnormal": "2",
+      "abnormalName": "有線電視ADSL 1",
+      "description": "dsdsdsdsds",
+      "telephoneContact": "01689935914",
+      "managerStaff": "",
+      "dateofacceptance": "",
+      "Fillintheday": "",
+      "Actualday": "",
+      "id": 4
+    },
+    {
+      "shape": "待接",
+      "Numbering": 54545454,
+      "reactionDate": "2019/10/04",
+      "dormitoryStaff": "潘國親",
+      "dormitoryEast": "D",
+      "location": "D152寇室",
+      "abnormal": "3",
+      "abnormalName": "浴室設施",
+      "description": "ewewewewewewew",
+      "telephoneContact": "01689935914",
+      "managerStaff": "",
+      "dateofacceptance": "",
+      "Fillintheday": "",
+      "Actualday": "",
+      "id": 5
+    },
+    {
+      "shape": "待接",
+      "Numbering": 123,
+      "reactionDate": "2019/10/04",
+      "dormitoryStaff": "院定河",
+      "dormitoryEast": "D",
+      "location": "公用區域5F楼",
+      "abnormal": "3",
+      "abnormalName": "浴室設施 1",
+      "description": "wewewewewe",
+      "telephoneContact": "01689935914",
+      "managerStaff": "",
+      "dateofacceptance": "",
+      "Fillintheday": "",
+      "Actualday": "",
+      "id": 6
+    },
+    {
+      "shape": "待接",
+      "Numbering": 321,
+      "reactionDate": "2019/10/04",
+      "dormitoryStaff": "院定河",
+      "dormitoryEast": "B",
+      "location": "公用區域5F楼",
+      "abnormal": "3",
+      "abnormalName": "",
+      "description": "wewewewewe",
+      "telephoneContact": "01689935914",
+      "managerStaff": "",
+      "dateofacceptance": "",
+      "Fillintheday": "",
+      "Actualday": "",
+      "id": 7
+    },
+    {
+      "shape": "待接",
+      "Numbering": 5454,
+      "reactionDate": "2019/10/04",
+      "dormitoryStaff": "陳庭俊",
+      "dormitoryEast": "D",
+      "location": "D152寇室",
+      "abnormal": "2",
+      "abnormalName": "有線電視ADSL",
+      "description": "有線電視ADSL kuai teo",
+      "telephoneContact": "01689935914",
+      "managerStaff": "",
+      "dateofacceptance": "",
+      "Fillintheday": "",
+      "Actualday": "",
+      "id": 8
+    },
+    {
+      "shape": "待接",
+      "Numbering": 1113,
+      "reactionDate": "2019/10/04",
+      "dormitoryStaff": "陳庭俊",
+      "dormitoryEast": "B",
+      "location": "公用區域4F楼",
+      "abnormal": "3",
+      "abnormalName": "浴室設施 1",
+      "description": "浴室設施 1",
+      "telephoneContact": "01689935914",
+      "managerStaff": "黎文疊",
+      "dateofacceptance": "",
+      "Fillintheday": "",
+      "Actualday": "",
+      "id": 9
+    },
+    {
+      "shape": "待接",
+      "Numbering": 84738473,
+      "reactionDate": "2019/10/04",
+      "dormitoryStaff": "陳庭俊",
+      "dormitoryEast": "D",
+      "location": "D152寇室",
+      "abnormal": "1",
+      "abnormalName": "渗漏水",
+      "description": "ssdsdsdsds",
+      "telephoneContact": "01689935914",
+      "managerStaff": "",
+      "dateofacceptance": "",
+      "Fillintheday": "",
+      "Actualday": "",
+      "id": 10
+    },
+    {
+      "shape": "待接",
+      "Numbering": 98765,
+      "reactionDate": "2019/10/04",
+      "dormitoryStaff": "陳庭俊",
+      "dormitoryEast": "F",
+      "location": "公用區域RF楼",
+      "abnormal": "2",
+      "abnormalName": "有線電視ADSL 1",
+      "description": "wdwwdwdwddw",
+      "telephoneContact": "01689935914",
+      "managerStaff": "",
+      "dateofacceptance": "",
+      "Fillintheday": "",
+      "Actualday": "",
+      "id": 11
+    },
+    {
+      "shape": "待接",
+      "Numbering": 3434,
+      "reactionDate": "2019/10/04",
+      "dormitoryStaff": "陳庭俊",
+      "dormitoryEast": "D",
+      "location": "D152寇室",
+      "abnormal": "1",
+      "abnormalName": "渗漏水",
+      "description": "sdsdsdsd",
+      "telephoneContact": "01689935914",
+      "managerStaff": "",
+      "dateofacceptance": "",
+      "Fillintheday": "",
+      "Actualday": "",
+      "id": 12
+    },
+    {
+      "shape": "待接",
+      "Numbering": 548547,
+      "reactionDate": "2019/10/04",
+      "dormitoryStaff": "院定河",
+      "dormitoryEast": "N",
+      "location": "N150寇室",
+      "abnormal": "3",
+      "abnormalName": "浴室設施",
+      "description": "cacs ss skcsmskdskdsk",
+      "telephoneContact": "01689935914",
+      "managerStaff": "",
+      "dateofacceptance": "",
+      "Fillintheday": "",
+      "Actualday": "",
+      "id": 13
+    },
+    {
+      "shape": "經辦",
+      "Numbering": 5421,
+      "reactionDate": "2019/10/05",
+      "dormitoryStaff": "潘國親",
+      "dormitoryEast": "D",
+      "location": "D152寇室",
+      "abnormal": "1",
+      "abnormalName": "渗漏水",
+      "description": "陳進英",
+      "telephoneContact": "01689935914",
+      "managerStaff": "",
+      "dateofacceptance": "",
+      "Fillintheday": "",
+      "Actualday": "",
+      "id": 14
+    },
+    {
+      "shape": "结案",
+      "Numbering": 12312,
+      "reactionDate": "2019/10/05",
+      "dormitoryStaff": "院定河",
+      "dormitoryEast": "B",
+      "location": "公用區域RF楼",
+      "abnormal": "1",
+      "abnormalName": "渗漏水 1",
+      "description": "dfdfdfdfdf",
+      "telephoneContact": "01689935914",
+      "managerStaff": "黎文疊",
+      "dateofacceptance": "",
+      "Fillintheday": "",
+      "Actualday": "",
+      "id": 15
+    }
+  ]
+}

@@ -1,44 +1,51 @@
 <div class="homePage">
 
   <div class="col-12 box">
-    <div class="col-12 col-md-8 row" >
-      <button class="btn col-2 col-md-1"><img src="assets/image/xinzeng.png" /></button>
-      <button class="btn col-2 col-md-1"><img src="assets/image/xinzeng.png" /></button>
-      <button class="btn col-2 col-md-1"><img src="assets/image/xinzeng.png" /></button>
-      <button class="btn col-2 col-md-1" (click) ="onBack()"><img src="assets/image/xinzeng.png" /></button>
-      <button class="btn col-2 col-md-1"><img src="assets/image/xinzeng.png" /></button>
+    <div class="col-12 col-md-8 row">
+      <button class="btnClick col-2 col-md-1"><img src="assets/image/icon_add.PNG" /></button>
+      <button class="btnClick col-2 col-md-1" (click) ="clickSave()"><img src={{icon_save}} /></button>
+      <button class="btnClick col-2 col-md-1"><img src="assets/image/icon_refesh.PNG" /></button>
+      <button class="btnClick col-2 col-md-1" (click)="onBack()"><img src="assets/image/icon_back.PNG" /></button>
+      <button class="btnClick col-2 col-md-1"><img src="assets/image/icon_edit.PNG" /></button>
     </div>
   </div>
-  <form [formGroup]="inputForm">
-  
+  <form [formGroup]="inputForm" (ngSubmit)="onSubmit()">
+
     <div class="row topInput">
 
       <div class="col-12 col-sm-12 col-md-6 col-lg-6 marginTop">
         <div class="form-group row">
-          <label for="staticEmail" class="col-3 col-md-4 col-form-label text-right">編碼:</label>
+          <label for="staticEmail" class="col-3 col-md-4 col-form-label text-right">編號:</label>
           <div class="col-8 col-md-5">
-            <input type="number" class="form-control" id="staticEmail" formControlName="telephone">
+            <input type="number" class="form-control" id="staticEmail" formControlName="telephone" (keyup) ="eventInputTelephone($event)"
+              [ngClass]="{ 'is-invalid': submitted && f.telephone.errors || checkTelephone }">
           </div>
+
         </div>
         <div class="form-group row">
           <label for="staticEmail" class="col-3 col-md-4 col-form-label text-right">住宿人員Node ID:</label>
           <div class="col-8 col-md-6">
-            <input type="text" class="form-control" id="" formControlName="manhanvien" (keydown.Tab)="onKey($event)">
+            <input type="text" class="form-control" id="" formControlName="manhanvien" (keydown.Tab)="onKey($event)"
+              (keyup)="eventInput($event)"
+              [ngClass]="{ 'is-invalid': (submitted && f.manhanvien.errors) ||checkNodeid }">
           </div>
         </div>
         <div class="form-group row">
           <label for="staticEmail" class="col-3 col-md-4 col-form-label text-right">聯絡電話:</label>
           <div class="col-8 col-md-7">
-            <input type="number" class="form-control" id="" formControlName="contactnumber">
+            <input type="number" class="form-control" readonly="readonly" formControlName="contactnumber"
+             >
           </div>
         </div>
         <div class="form-group row">
           <label for="staticEmail" class="col-3 col-md-4 col-form-label text-right">宿舍管理人員:</label>
-          <div class="col-4 col-md-3">
-            <input type="text" class="form-control" id="">
+          <div class="col-4 col-md-4">
+            <input type="text" class="form-control" id="" (keyup)="eventIDManager($event)"
+              formControlName="nodeIDManage" >
           </div>
-          <div class="col-5 col-md-5">
-            <input type="text" class="form-control" id="">
+          <div class="col-5 col-md-4">
+            <input type="text" class="form-control" id="" formControlName="nameManage"
+              (keyup)="eventNameManager($event)">
           </div>
         </div>
       </div>
@@ -47,14 +54,14 @@
         <div class="form-group row">
           <label for="staticEmail" class="col-3 col-md-4 col-form-label text-right">反應日期:</label>
           <div class="col-8 col-md-7">
-            <input type="text" class="form-control" id="">
+            <input type="text" class="form-control" readonly="readonly" formControlName="today">
           </div>
         </div>
         <!-- 寇室别 -->
         <div class="form-group row">
           <label for="staticEmail" class="col-3 col-md-4 col-form-label text-right">寇室别:</label>
           <div class="col-4 col-md-3">
-            <input type="text" class="form-control" id="">
+            <input type="text" class="form-control" readonly="readonly" formControlName="maphong">
           </div>
           <div class="col-4 col-md-5 col-form-label text-left">
             <span>(如： E301)</span>
@@ -63,7 +70,7 @@
         <div class="form-group row">
           <label for="staticEmail" class="col-3 col-md-4 col-form-label text-right">姓名:</label>
           <div class="col-8 col-md-8">
-            <input type="text" class="form-control" id="">
+            <input type="text" class="form-control" readonly="readonly" formControlName="fullname">
           </div>
         </div>
       </div>
@@ -74,11 +81,11 @@
           <div class="col-8 col-md-8 col-form-label">
             <div class="row">
               <label class="radio col-5 col-md-4">
-                <input type="radio" name="r" value="1" checked>
+                <input type="radio" name="quShi" checked (change)="selectPrivate()">
                 <span>寇室</span>
               </label>
               <label class="radio col-7 col-md-6">
-                <input type="radio" name="r" value="2">
+                <input type="radio" name="quShi" (change)="selectPublic()">
                 <span>公用區域</span>
               </label>
             </div>
@@ -89,19 +96,92 @@
         <div class="form-group row">
           <label for="staticEmail" class="col-3 col-md-4 col-form-label text-right">棟別:</label>
           <div class="col-4 col-md-4">
-            <input type="text" class="form-control" id="">
+            <div class="dropdown">
+              <input class="btn text-left form-control" type="text"  readonly="readonly" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" 
+              style="color: black; width: 70%; height: 35px;" [ngClass]="{ 'is-invalid': checkbuildRoom}" [value]="titleRoom" 
+              formControlName ="buildRoom"/>
+             
+               
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" [ngClass] ="hiddenSeach">
+                <div class="mldorm_seach" >
+                  <div class="row no-gutters header_seach" >
+                    <div class="col-3 text-center">
+                      東別：
+                    </div>
+                    <div class="col-9">
+                      <input type="search" formControlName="searchText" name="search" [(ngModel)]="searchText" placeholder="Seach" class="filter-input inputSeach"
+                      />
+                    </div>
+                  </div>
+                  <div class="mldorm_table_room" style="max-height: 300px; overflow: auto">
+                    <table class="table table-striped">
+                      <thead>
+                        <tr>
+                          
+                          <th scope="col" class="text-center">區域</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let region of listRegion | filter:searchText ; let i= index" (click) ='selectRoom(region.id)'>
+                       
+                          <td class="text-center">{{region.title}}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+
           </div>
-          <div class="col-5 col-md-4 col-form-label">
-            <button>選擇</button>
+          <select class="custom-select col-2 col-md-2" (change)="selectRegion($event)" formControlName="tangNumber"
+           [ngClass]="{ 'is-invalid': checkInputFloor}">
+            <option *ngFor ="let tang of listTang; let i = index" [ngValue] ="tang">{{tang}}</option>
+          </select>
+          <div class="col-3 col-md-2 col-form-label">
+            <button [disabled]="disbaleButton" (click)="showdDidian()">選擇</button>
           </div>
 
         </div>
       </div>
       <div class="col-12  col-md-12 col-lg-12">
         <div class="form-group row">
-          <label for="staticEmail" class="col-3 col-md-2 col-form-label text-right">低點:</label>
+          <label for="staticEmail" class="col-3 col-md-2 col-form-label text-right">地點:</label>
           <div class="col-9 col-md-10">
-            <input type="text" class="form-control" id="">
+            <!-- <select class="custom-select" (change)="selectDidian($event)">
+              <option *ngFor="let didian of listDemo" [ngValue]="didian.title">{{didian.title}}</option>
+            </select> -->
+            <input class="btn text-left form-control" type="text"  readonly="readonly" id="dropSeachLocation" data-toggle="dropdown"  
+            aria-haspopup="true" aria-expanded="false" style="color: black; width: 100%; height: 35px;"
+            [ngClass]="{ 'is-invalid': submitted && checkInputLocation}" formControlName="inputLocation" (click) ="hello()"
+            [value]="titleLocation">
+           
+            <div class="dropdown-menu" aria-labelledby="dropSeachLocation" [ngClass] ="hiddenLocation">
+              <div class="seach_location">
+                <div class="row no-gutters header_location">
+                  <div class="col-2 text-center align-self-center">地點：</div>
+                  <div class="col-8">
+                    <input type="search" formControlName="searchLocation" name="search" [(ngModel)]="searchLocation" placeholder="地點" class="filter-input inputSeach"/>
+                  </div>
+                </div>
+                <div class="mldorm_table_room" style="max-height: 200px; overflow: auto">
+                  <table class="table table-striped">
+                    <thead>
+                      <tr>
+                        <th class="text-center">STT</th>
+                        <th scope="col" class="text-center">地點</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let location of listPulic | filter:searchLocation ; let i= index" (click) ='selectLocation(i)'>
+                         <td class="text-center">{{location.stt}}</td>
+                        <td class="text-center">{{location.nameLocation}}</td>
+                      </tr>
+                      </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -109,13 +189,14 @@
         <div class="form-group row ">
           <label for="staticEmail" class="col-3 col-md-2 col-form-label text-right">異常項目:</label>
           <div class="col-2 col-md-1" style="padding-right: 0px !important">
-            <input type="number" class="form-control" id="">
+            <input type="text" class="form-control" formControlName="idAbnormal"  [ngClass]="{ 'is-invalid': submitted && checkIdabnormal}" (keyup) ="inputAbNomol($event)">
           </div>
           <div class="col-3 col-md-1 col-form-label " style="padding-right: 0px !important">
-            <button>選擇</button>
+            <button [disabled]="disableAbnormal" (click) ="selectAdnomol()">選擇</button>
           </div>
           <div class="col-4 col-md-3" style="padding-left: 0px !important">
-            <input type="text" class="form-control" id="">
+            <input type="text" class="form-control" readonly="readonly" formControlName ="nameAdnormal"
+            [ngClass]="{ 'is-invalid': checknameAdnormal}">
           </div>
         </div>
       </div>
@@ -123,11 +204,14 @@
         <div class="form-group row">
           <label for="staticEmail" class="col-3 col-md-2  col-form-label text-right">異常說明:</label>
           <div class="col-9 col-md-10">
-            <input type="text" class="form-control" id="">
+            <input type="text" class="form-control"  (keyup)="eventDescription($event)"formControlName ="description"
+            [ngClass]="{ 'is-invalid': checkDescription}" >
           </div>
         </div>
       </div>
 
     </div>
   </form>
+ 
 </div>
+

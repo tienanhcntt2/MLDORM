@@ -1,10 +1,19 @@
 <div class="homePage">
+    <div class="col-12 box">
+        <div class="col-12 col-md-8 row">
+          <button class="btnClick col-2 col-md-1"><img src="assets/image/icon_add.PNG" /></button>
+          <button class="btnClick col-2 col-md-1"><img src="assets/image/icon_save_0.PNG"/></button>
+          <button class="btnClick col-2 col-md-1"><img src="assets/image/icon_refesh.PNG" /></button>
+          <button class="btnClick col-2 col-md-1" (click)="onBack()"><img src="assets/image/icon_back.PNG" /></button>
+          <button class="btnClick col-2 col-md-1"><img src="assets/image/icon_edit.PNG" /></button>
+        </div>
+      </div>
   <form>
     <div class="row">
       <div class="col-12 col-md-5">
         <!-- 1 -->
         <div class="form-group row">
-          <label for="staticEmail" class="col-3 col-md-5 col-form-label text-right">編碼:</label>
+          <label for="staticEmail" class="col-3 col-md-5 col-form-label text-right">編號:</label>
           <div class="col-8 col-md-5">
             <input type="number" class="form-control" id="staticEmail">
           </div>
@@ -21,14 +30,14 @@
       <div class="col-12 col-md-4">
         <!-- 3 -->
         <div class="form-group row">
-          <label for="staticEmail" class="col-3 col-md-4 col-form-label text-right">異常項目:</label>
+          <label for="staticEmail" class="col-3 col-md-4 col-form-label text-right">反應日期:</label>
           <div class="col-8 col-md-6">
             <input type="number" class="form-control" id="staticEmail">
           </div>
         </div>
         <!-- 4 -->
         <div class="form-group row">
-          <label for="staticEmail" class="col-3 col-md-4 col-form-label text-right">異常項目:</label>
+          <label for="staticEmail" class="col-3 col-md-4 col-form-label text-right">寇室別:</label>
           <div class="col-8 col-md-5">
             <input type="number" class="form-control" id="staticEmail">
           </div>
@@ -37,7 +46,7 @@
       <div class="col-12 col-md-3">
         <!-- 5 -->
         <div class="form-group row">
-          <label for="staticEmail" class="col-3 col-md-3 col-form-label text-right">&</label>
+          <label for="staticEmail" class="col-3 col-md-3 col-form-label text-right">~</label>
           <div class="col-8 col-md-6">
             <input type="number" class="form-control" id="staticEmail">
           </div>
@@ -92,7 +101,7 @@
             <input type="text" class="form-control" id="staticEmail">
           </div>
           <div class="col-4 col-md-4 col-form-label">
-            <button>選擇</button>
+            <button>查詢</button>
           </div>
         </div>
 
@@ -104,65 +113,70 @@
         <div class="row">
           <p class="col-3 col-md-5 col-form-label text-right">待接件:</p>
           <div class="col-2 col-md-2">
-            <input type="checkbox" id="test">
-            <label for="test"></label>
+            <div class="custom-control custom-checkbox col-form-label text-right">
+              <input type="checkbox" class="custom-control-input" id="customCheck0">
+              <label class="custom-control-label" for="customCheck0"></label>
+            </div>
           </div>
         </div>
 
       </div>
       <div class="col-12 col-md-4">
         <div class="row">
-          <p class="col-3 col-md-4 col-form-label text-right">待接件:</p>
+          <p class="col-3 col-md-4 col-form-label text-right">經辦中:</p>
           <div class="col-2 col-md-2">
-            <input type="checkbox" id="test2">
-            <label for="test2"></label>
+            <div class="custom-control custom-checkbox col-form-label text-right">
+              <input type="checkbox" class="custom-control-input" id="customCheck1">
+              <label class="custom-control-label" for="customCheck1"></label>
+            </div>
           </div>
         </div>
       </div>
       <div class="col-12 col-md-3">
         <div class="row">
-          <p class="col-3 col-md-3 col-form-label text-right">接件:</p>
+          <p class="col-3 col-md-3 col-form-label text-right">结案:</p>
           <div class="col-2 col-md-2">
-            <input type="checkbox" id="test3">
-            <label for="test3"></label>
+            <div class="custom-control custom-checkbox col-form-label text-right">
+              <input type="checkbox" class="custom-control-input" id="customCheck2">
+              <label class="custom-control-label" for="customCheck2"></label>
+            </div>
           </div>
           <div class="col-4 col-md-6 col-form-label">
-            <button class="float-right">選擇</button>
+            <button class="float-right">清除</button>
           </div>
         </div>
       </div>
     </div>
   </form>
 
-  <div class="table-wrapper">
-      <table class="fl-table">
-          <thead>
-              <tr>
-                  <th *ngFor ="let inquire of listQuire"> {{inquire.title}}</th>
-                </tr>
-          </thead>
-          <tbody>
-              <tr *ngFor ="let inquire of listQuire">
-                <td>{{inquire.title}}</td>
-                <td>{{inquire.title}}</td>
-                <td>{{inquire.title}}</td>
-                <td>{{inquire.title}}</td>
-                <td>{{inquire.title}}</td>
-                <td>{{inquire.title}}</td>
-                <td>{{inquire.title}}</td>
-                <td>{{inquire.title}}</td>
-                <td>{{inquire.title}}</td>
-                <td>{{inquire.title}}</td>
-                <td>{{inquire.title}}</td>
-                <td>{{inquire.title}}</td>
-                <td>{{inquire.title}}</td>
-                <td>{{inquire.title}}</td>
-                
-              </tr>
-            </tbody>
-      </table>
-    
+  <div id="table">
+    <table>
+      <thead>
+          <tr>
+              <th *ngFor ="let header of listHeader" class="text-center"> {{header.titleHeader}}</th>
+            </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor ="let data of listData">
+              <!-- <td class="text-center"  [ngStyle]="{'color': data.shape ==='待接'? 'red' : 'green'}">{{data.shape}}</td> -->
+              <td class="text-center"  [ngClass]="{'redClass': data.shape ==='待接', 'greenClass' : data.shape ==='經辦','blackClass':data.shape==='结案'}">{{data.shape}}</td>
+              <td class="text-center">{{data.Numbering}}</td>
+              <td class="text-center">{{data.reactionDate}}</td>
+              <td class="text-center">{{data.dormitoryStaff}}</td>
+              <td class="text-center">{{data.dormitoryEast}}</td>
+              <td class="text-center">{{data.location}}</td>
+              <td class="text-center">{{data.abnormal}}</td>
+              <td class="text-center">{{data.abnormalName}}</td>
+              <td class="text-center">{{data.description}}</td>
+              <td class="text-center">{{data.telephoneContact}}</td>
+              <td class="text-center">{{data.managerStaff}}</td>
+              <td class="text-center">{{data.dateofacceptance}}</td>
+              <td class="text-center">{{data.Fillintheday}}</td>
+              <td class="text-center">{{data.Actualday}}</td>
+              
+            </tr>
+      </tbody>
+      
+    </table>
   </div>
-
-  
 </div>

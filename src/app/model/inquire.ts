@@ -4,6 +4,40 @@ export class Inquire{
      title: string;
 
 }
+export class NameHeader{
+    titleHeader:string;
+}
+let listHeader: NameHeader[] =[
+    {
+        titleHeader:"狀惠"
+    }, {
+        titleHeader:"編號"
+    }, {
+        titleHeader:"反應日期"
+    }, {
+        titleHeader:"宿舍人員"
+    }, {
+        titleHeader:"宿舍東別"
+    }, {
+        titleHeader:"地點"
+    }, {
+        titleHeader:"異常項目"
+    }, {
+        titleHeader:"項目姓名"
+    }, {
+        titleHeader:"異常說明"
+    }, {
+        titleHeader:"連絡電話"
+    }, {
+        titleHeader:"管理人員"
+    }, {
+        titleHeader:"受理日期"
+    }, {
+        titleHeader:"填完日"
+    }, {
+        titleHeader:"實完日"
+    }
+]
 let listInquire: Inquire[] =[
     {
     title:"1"},
@@ -53,5 +87,8 @@ let listInquire: Inquire[] =[
 export class InquireService{
     getListInquire():Inquire[]{
         return listInquire;
+    }
+    getListHeader() : NameHeader[]{
+        return listHeader;
     }
 }

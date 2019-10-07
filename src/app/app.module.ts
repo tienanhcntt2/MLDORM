@@ -11,6 +11,18 @@ import { HeaderComponent } from './layout/header/header.component';
 import { PageNotFoundComponent } from './layout/page-not-found/page-not-found.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InquireService } from './model/inquire';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { DatePipe } from '@angular/common';
+import { environment } from 'src/environments/environment';
+
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+export function translateHttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http,environment.Languager);
+}
 
 @NgModule({
   declarations: [
@@ -25,11 +37,21 @@ import { InquireService } from './model/inquire';
   imports: [
     BrowserModule,
     FormsModule,
+    HttpClientModule,
     ReactiveFormsModule,
-    AppRoutingModule
+    BrowserAnimationsModule,
+    AppRoutingModule,
+    Ng2SearchPipeModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: translateHttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    })
   ],
   providers: [
-    InquireService
+    DatePipe, InquireService
   ],
   bootstrap: [AppComponent]
 })
