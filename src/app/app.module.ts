@@ -20,6 +20,25 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import {
+  MatAutocompleteModule,
+  MatInputModule,
+  MatCheckboxModule,
+  MatDatepickerModule,
+  MatNativeDateModule,
+  MatSelectModule,
+  MatIconModule,
+  MatRadioModule,
+  MatSliderModule,
+  MatMenuModule,
+  MatSidenavModule,
+  MatCardModule,
+  MatListModule,
+  MatExpansionModule,
+  MatDialogModule,
+  MatFormFieldModule
+} from '@angular/material';
+
 export function translateHttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http,environment.Languager);
 }
@@ -40,6 +59,8 @@ export function translateHttpLoaderFactory(http: HttpClient) {
     HttpClientModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+    MatInputModule,
+    MatAutocompleteModule,
     AppRoutingModule,
     Ng2SearchPipeModule,
     TranslateModule.forRoot({

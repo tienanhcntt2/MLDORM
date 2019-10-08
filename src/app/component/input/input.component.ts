@@ -16,6 +16,10 @@ import { Manager } from 'src/app/model/manager.js';
 import { Adnomal } from 'src/app/model/Adnomal.js';
 import { ConfigDataService } from 'src/app/Sevice/config-data.service.js';
 import { DataDemo } from 'src/app/model/DataDemo.js';
+
+import {Observable} from 'rxjs';
+import {map, startWith} from 'rxjs/operators';
+
 // component 
 @Component({
   selector: 'app-input',
@@ -64,7 +68,9 @@ export class InputComponent implements OnInit {
   // import data json manager
   manager: any = manager;
   private listManager: Manager[] = [];
-
+  private filteredStates: Observable<Manager[]>;
+  private filteredAbnomarl : Observable<Adnomal[]>;
+  private listAdnomarl: Adnomal[] = [];
   // check boolean input when use click text input
   private checkTelephone: boolean = false;
   private checkNodeIdManager: boolean = false;
@@ -86,8 +92,7 @@ export class InputComponent implements OnInit {
     this.txt_today = this.datePipe.transform(new Date(), "yyyy/MM/dd");
     this.listRegion = this.build;
     this.listManager = this.manager;
-
-
+    this.initListAdnomarl();
   }
 
   ngOnInit() {
@@ -121,6 +126,14 @@ export class InputComponent implements OnInit {
 
     // set function
     this.initConfig();
+
+    this.filteredStates = this.f.nodeIDManage.valueChanges
+    .pipe(
+      startWith(''),
+      map(state => state ? this._filterStates(state) : this.listManager.slice())
+    );
+   
+    
   }
   /**
    * set config
@@ -133,6 +146,12 @@ export class InputComponent implements OnInit {
     }
   }
 
+  selectIDNode(event:any){
+   this.inputForm.get("nameManage").setValue(event);
+  }
+  /**
+   * demo hello
+   */
   hello() {
     if (this.checkRegionSelect) {
       if (this.f.maphong.value.length <= 0) {
@@ -193,46 +212,8 @@ export class InputComponent implements OnInit {
     }
     this.showIconSave();
   }
-  /**
-   * input event admonol
-   * @param event 
-   */
-  private idNumberAdmono: number;
-  inputAbNomol(event: any) {
-    if (event.target.value.length > 0) {
-      this.disableAbnormal = false;
-      this.idNumberAdmono = event.target.value;
-      this.checkIdabnormal = false;
-    } else {
-      this.disableAbnormal = true;
-      this.checkIdabnormal = true;
-    }
-    this.showIconSave();
-  }
-  /**
-   * click adnomol
-   */
-  admonol: Adnomal;
-  selectAdnomol() {
 
-    /// sleclect private
-    let url = "";
-    if (this.checkRegionSelect) {
-      url ="/projectAdnomalPrivate/";
-    } else {
-     url ="/projectAdnomalPublic/";
-    }
-    this.idNumberAdmono = this.f.idAbnormal.value;
-    this.configData.getNameAdmono(url,this.idNumberAdmono).subscribe(data => {
-      this.inputForm.get("nameAdnormal").setValue(data.name);
-      this.checknameAdnormal = false;
-    }, error => {
-      this.checknameAdnormal = true;
-      this.inputForm.get("nameAdnormal").setValue("");
-    }
-    )
-    this.showIconSave();
-  }
+
   /**
    * event input telephone
    * @param event 
@@ -307,17 +288,7 @@ export class InputComponent implements OnInit {
     return flag;
 
   }
-  /**
-   * event input name 
-   * @param event 
-   */
-  private eventNameManager(event: any) {
-    if (this.returnNameManager(event.target.value)) {
-      this.inputForm.get("nodeIDManage").setValue(this.listManager[this.positionMananger].idNode);
-    } else {
-      this.inputForm.get("nodeIDManage").setValue("");
-    }
-  }
+
   /**
    * select room i
    * @param i 
@@ -466,6 +437,7 @@ export class InputComponent implements OnInit {
     this.checkSelectRegion();
     this.inputForm.get("nameAdnormal").setValue("");
     this.showIconSave();
+    this.initListAdnomarl();
   }
   /**
    * lua chon cong cong
@@ -476,6 +448,7 @@ export class InputComponent implements OnInit {
     this.checkSelectRegion();
     this.inputForm.get("nameAdnormal").setValue("");
     this.showIconSave();
+    this.initListAdnomarl();
   }
   /**
    * check select radio 
@@ -540,6 +513,48 @@ export class InputComponent implements OnInit {
       this.checkInputLocation = true;
     } else {
       this.checkInputLocation = false;
+    }
+  }
+
+  private _filterStates(value: string): Manager[] {
+    const filterValue = value.toLowerCase();
+    
+    return this.listManager.filter(state => state.fullName.toLowerCase().indexOf(filterValue) === 0);
+  }
+
+  private _filterAdnomarl(value: string): Adnomal[] {
+    const filterValue = value.toLowerCase();
+   
+    return this.listAdnomarl.filter(state => state.name.toLowerCase().indexOf(filterValue) === 0);
+  }
+
+  //get list adnomarl
+  private initListAdnomarl(){
+    let url ="/projectAdnomalPublic"
+    if(this.checkRegionSelect){
+      url="/projectAdnomalPrivate";
+    }
+    
+    this.configData.getListAdnomarl(url).subscribe(data =>{
+      this.listAdnomarl = data;
+      this.filteredAbnomarl = this.f.idAbnormal.valueChanges.pipe(
+        startWith(''),
+        map(state => state ? this._filterAdnomarl(state) :this.listAdnomarl.slice())
+      );
+    })
+  }
+
+  /**
+   * select id adnomarl
+   * @param event 
+   */
+  selectIDAdnomarl(event:any){
+    this.inputForm.get("nameAdnormal").setValue(event);
+  }
+
+  eventIdNomarl(event:any){
+    if(event.target.value.length<=0){
+      this.inputForm.get("nameAdnormal").setValue("");
     }
   }
 }

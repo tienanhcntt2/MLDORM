@@ -38,7 +38,7 @@ label.btn span {
   }
   // seach in popup of input
   .mldorm_seach{
-    width: 200px;
+    width: 150px;
     overflow: hidden;
   }
   .btn-sm{
@@ -125,12 +125,36 @@ input:disabled{
   border-left: 5px solid #42A948; /* green */
 }
 
+// icon input
+input.search:before {
+	padding-right:20px;
+	background-repeat: no-repeat;
+  background-position-y: 1px;
+  right: 0;
+  font-weight: 900;
+  content: "\&#xf0d7";
+}
+.errspan {
 
+  color: red;
+}
+::ng-deep .mat-form-field-infix {
+  width: auto !important;
+  padding: 0px 0 !important;
+  border-top: 0px solid transparent !important;
+}
+.mat-form-field-infix{
+    display: block;
+    position: relative;
+    flex: auto;
+    padding: 0;
+    border-top: 0px solid transparent !important;
+}
 // scroll
 
  /* width */
  ::-webkit-scrollbar {
-  width: 0px;
+  width: 0px !important;
 }
 
 /* Track */

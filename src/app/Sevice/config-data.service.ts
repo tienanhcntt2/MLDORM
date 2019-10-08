@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Adnomal } from '../model/Adnomal';
 import { DataDemo } from '../model/DataDemo';
-
+import { map } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
@@ -20,6 +20,10 @@ export class ConfigDataService {
 
   public getNameAdmono(region:string,id: number){
     return this.http.get<Adnomal>(this.url +region+id);
+  }
+
+  public getListAdnomarl(region:string){
+    return this.http.get<Adnomal[]>(this.url +region);
   }
   public saveProjectNormal(dataDemo:DataDemo){
     let flat : boolean = false;

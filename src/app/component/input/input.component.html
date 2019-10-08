@@ -40,12 +40,22 @@
         <div class="form-group row">
           <label for="staticEmail" class="col-3 col-md-4 col-form-label text-right">宿舍管理人員:</label>
           <div class="col-4 col-md-4">
-            <input type="text" class="form-control" id="" (keyup)="eventIDManager($event)"
-              formControlName="nodeIDManage" >
+            <!-- <input type="text" class="form-control" id="" (keyup)="eventIDManager($event)"
+              formControlName="nodeIDManage" > -->
+
+              <mat-form-field class="example-full-width">
+                  <input matInput class="form-control" aria-label="State" [matAutocomplete]="auto"  formControlName="nodeIDManage">
+                  <mat-autocomplete #auto="matAutocomplete">
+                    <mat-option *ngFor="let state of filteredStates | async" [value]="state.idNode" (click) ="selectIDNode(state.fullName)">
+                      <span>{{state.idNode}}</span> |
+                      <small>{{state.fullName}}</small>
+                    </mat-option>
+                  </mat-autocomplete>
+                </mat-form-field>
           </div>
           <div class="col-5 col-md-4">
-            <input type="text" class="form-control" id="" formControlName="nameManage"
-              (keyup)="eventNameManager($event)">
+            <input type="text" class="form-control" readonly='readonly' id="" formControlName="nameManage"
+             >
           </div>
         </div>
       </div>
@@ -97,30 +107,27 @@
           <label for="staticEmail" class="col-3 col-md-4 col-form-label text-right">棟別:</label>
           <div class="col-4 col-md-4">
             <div class="dropdown">
+              
               <input class="btn text-left form-control" type="text"  readonly="readonly" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" 
               style="color: black; width: 70%; height: 35px;" [ngClass]="{ 'is-invalid': checkbuildRoom}" [value]="titleRoom" 
               formControlName ="buildRoom"/>
-             
                
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" [ngClass] ="hiddenSeach">
                 <div class="mldorm_seach" >
-                  <div class="row no-gutters header_seach" >
-                    <div class="col-3 text-center">
-                      東別：
-                    </div>
-                    <div class="col-9">
-                      <input type="search" formControlName="searchText" name="search" [(ngModel)]="searchText" placeholder="Seach" class="filter-input inputSeach"
+                  <div class="row no-gutters" >
+                    <div class="col-12">
+                      <input type="search" formControlName="searchText" name="search" [(ngModel)]="searchText" placeholder="棟別" class="filter-input inputSeach form-control "
                       />
                     </div>
                   </div>
-                  <div class="mldorm_table_room" style="max-height: 300px; overflow: auto">
+                  <div class="mldorm_table_room" style="max-height: 200px; overflow: auto">
                     <table class="table table-striped">
-                      <thead>
+                      <!-- <thead>
                         <tr>
                           
                           <th scope="col" class="text-center">區域</th>
                         </tr>
-                      </thead>
+                      </thead> -->
                       <tbody>
                         <tr *ngFor="let region of listRegion | filter:searchText ; let i= index" (click) ='selectRoom(region.id)'>
                        
@@ -188,13 +195,25 @@
       <div class="col-12">
         <div class="form-group row ">
           <label for="staticEmail" class="col-3 col-md-2 col-form-label text-right">異常項目:</label>
-          <div class="col-2 col-md-1" style="padding-right: 0px !important">
+          <!-- <div class="col-2 col-md-1" style="padding-right: 0px !important">
             <input type="text" class="form-control" formControlName="idAbnormal"  [ngClass]="{ 'is-invalid': submitted && checkIdabnormal}" (keyup) ="inputAbNomol($event)">
-          </div>
-          <div class="col-3 col-md-1 col-form-label " style="padding-right: 0px !important">
+          </div> -->
+          <!-- <div class="col-3 col-md-1 col-form-label " style="padding-right: 0px !important">
             <button [disabled]="disableAbnormal" (click) ="selectAdnomol()">選擇</button>
+          </div> -->
+          <div class="col-3 col-md-3">
+            <mat-form-field class="example-full-width">
+              <input matInput class="form-control" aria-label="State" [matAutocomplete]="autoID"  formControlName="idAbnormal" 
+              [ngClass]="{ 'is-invalid': submitted && checkIdabnormal}" (keyup) ="eventIdNomarl($event)">
+              <mat-autocomplete #autoID="matAutocomplete">
+                <mat-option *ngFor="let state of filteredAbnomarl | async" [value]="state.id" (click) ="selectIDAdnomarl(state.name)">
+                  <span>{{state.id}}</span> |
+                  <small>{{state.name}}</small>
+                </mat-option>
+              </mat-autocomplete>
+            </mat-form-field>
           </div>
-          <div class="col-4 col-md-3" style="padding-left: 0px !important">
+          <div class="col-3 col-md-3" style="padding-left: 0px !important">
             <input type="text" class="form-control" readonly="readonly" formControlName ="nameAdnormal"
             [ngClass]="{ 'is-invalid': checknameAdnormal}">
           </div>
@@ -211,6 +230,7 @@
       </div>
 
     </div>
+    
   </form>
  
 </div>
