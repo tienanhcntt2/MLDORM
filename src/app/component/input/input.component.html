@@ -2,11 +2,11 @@
 
   <div class="col-12 box">
     <div class="col-12 col-md-8 row">
-      <button class="btnClick col-2 col-md-1"><img src="assets/image/icon_add.PNG" /></button>
-      <button class="btnClick col-2 col-md-1" (click) ="clickSave()"><img src={{icon_save}} /></button>
-      <button class="btnClick col-2 col-md-1"><img src="assets/image/icon_refesh.PNG" /></button>
-      <button class="btnClick col-2 col-md-1" (click)="onBack()"><img src="assets/image/icon_back.PNG" /></button>
-      <button class="btnClick col-2 col-md-1"><img src="assets/image/icon_edit.PNG" /></button>
+      <button mat-button class="btnClick col-2 col-md-1"><img src="assets/image/icon_add.PNG" /></button>
+      <button mat-button class="btnClick col-2 col-md-1" (click) ="clickSave()"><img src={{icon_save}} /></button>
+      <button mat-button class="btnClick col-2 col-md-1"><img src="assets/image/icon_refesh.PNG" /></button>
+      <button mat-button class="btnClick col-2 col-md-1" (click)="onBack()"><img src="assets/image/icon_back.PNG" /></button>
+      <button mat-button class="btnClick col-2 col-md-1"><img src="assets/image/icon_edit.PNG" /></button>
     </div>
   </div>
   <form [formGroup]="inputForm" (ngSubmit)="onSubmit()">

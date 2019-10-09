@@ -15,6 +15,7 @@ export class HeaderComponent implements OnInit {
   public lag: Language;
   private lg: string = "";
   private entrypoint: string = '';
+  public activeState: string ;
   /**
    * contrustor header of website
    * @param translateService 
@@ -31,6 +32,7 @@ export class HeaderComponent implements OnInit {
     for (let i = 0; i < this.languages.length; i++) {
       if (this.languages[i].title === this.lg.toUpperCase()) {
         this.lag = this.languages[i];
+        this.activeState = this.languages[i].title.toUpperCase();
       }
     }
     this.translateService.use(this.lg);
@@ -47,6 +49,7 @@ export class HeaderComponent implements OnInit {
     */
    selectLanguage(i: number) {
     this.lag = this.languages[i];
+    this.activeState =this.languages[i].title.toUpperCase();
     this.translateService.use(this.languages[i].title.toLowerCase());
     localStorage.setItem("language", this.languages[i].title.toLowerCase());
   }

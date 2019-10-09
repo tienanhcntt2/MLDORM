@@ -36,8 +36,13 @@ import {
   MatListModule,
   MatExpansionModule,
   MatDialogModule,
-  MatFormFieldModule
+  MatFormFieldModule,
+  MatButtonModule,
+  MatButtonToggleModule,
+  DateAdapter,
+  MAT_DATE_FORMATS
 } from '@angular/material';
+import { AppDateAdapter, APP_DATE_FORMATS } from './util/AppDateAdapter';
 
 export function translateHttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http,environment.Languager);
@@ -54,12 +59,19 @@ export function translateHttpLoaderFactory(http: HttpClient) {
     PageNotFoundComponent
   ],
   imports: [
+
+    //angular material
+    MatButtonModule,
+    MatButtonToggleModule,
+    MatDatepickerModule,
+    MatIconModule,
+    MatInputModule,
+    // nooo
     BrowserModule,
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    MatInputModule,
     MatAutocompleteModule,
     AppRoutingModule,
     Ng2SearchPipeModule,
@@ -72,7 +84,13 @@ export function translateHttpLoaderFactory(http: HttpClient) {
     })
   ],
   providers: [
-    DatePipe, InquireService
+    DatePipe, InquireService,
+    {
+      provide: DateAdapter, useClass: AppDateAdapter
+    },
+    {
+      provide: MAT_DATE_FORMATS, useValue: APP_DATE_FORMATS
+    }
   ],
   bootstrap: [AppComponent]
 })

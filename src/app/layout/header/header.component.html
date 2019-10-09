@@ -34,7 +34,7 @@
                         <img src={{lag.imagePath}} style="padding-right: 10px;"/>{{lag.name}}
                       </button>
                       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a *ngFor ="let language of languages;let i = index" (click)="selectLanguage(i)" class="dropdown-item">
+                        <a *ngFor ="let language of languages;let i = index" (click)="selectLanguage(i)" class="dropdown-item" [class.active]="language.title === activeState">
                           <img src={{language.imagePath}} style="padding-right: 10px;" /> {{language.name}}
                         </a>
                        

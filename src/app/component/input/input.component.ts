@@ -19,7 +19,7 @@ import { DataDemo } from 'src/app/model/DataDemo.js';
 
 import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
-
+import { Location } from '@angular/common';
 // component 
 @Component({
   selector: 'app-input',
@@ -87,7 +87,9 @@ export class InputComponent implements OnInit {
    * @param http 
    * @param datePipe 
    */
-  constructor(private formBuilder: FormBuilder, private http: HttpClient, private datePipe: DatePipe, private configData: ConfigDataService) {
+  constructor(private formBuilder: FormBuilder, private http: HttpClient, private datePipe: DatePipe, private configData: ConfigDataService,
+    private location: Location) {
+    
     let date = new Date();
     this.txt_today = this.datePipe.transform(new Date(), "yyyy/MM/dd");
     this.listRegion = this.build;
@@ -496,16 +498,7 @@ export class InputComponent implements OnInit {
    * goto back
    */
   onBack() {
-    //this.onPopState(event);
-
-  }
-  /**
-   * on back
-   * @param event 
-   */
-  @HostListener('window:popstate', ['$event'])
-  onPopState(event) {
-    //alert('Back button pressed');
+    this.location.back();
   }
 
   private checkLocation() {
@@ -548,15 +541,17 @@ export class InputComponent implements OnInit {
    * select id adnomarl
    * @param event 
    */
-  name: string ="";
+  name: any ="";
   selectIDAdnomarl(event:any){
     this.disableAbnormal = true;
-    this.name = event.target.value;
+    //this.name = event.target.value;
+    this.name = event;
+    
     
   }
   selectAdnomol(){
-    alert(name);
     this.inputForm.get("nameAdnormal").setValue(name);
+    
   }
 
   eventIdNomarl(event:any){

@@ -171,3 +171,8 @@ input.search:before {
 ::-webkit-scrollbar-thumb:hover {
   background: #38bdff;
 }
+
+.btnClick:focus,.btnClick:active {
+  outline: none !important;
+  box-shadow: none;
+}

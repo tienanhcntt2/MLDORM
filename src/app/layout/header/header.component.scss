@@ -1,3 +1,7 @@
+
+$color_072884 :  #032ea3;
+$color_0b3cb1 : #032ea3;
+$color_2a34ff : #2a34ff;
 .not-focusable:focus {
     outline: none;
     box-shadow: none;
@@ -36,3 +40,29 @@
       color: red;
   }
 }
+.language{
+    display: table-cell;
+  vertical-align: middle;
+    height: 40px;
+    color: white;
+    padding-left: 20px;
+    img{
+        
+        height: auto;
+        vertical-align:middle;
+        margin-right: 10px;
+    }
+    span{
+        vertical-align:middle;
+        
+    }
+    :hover{
+        cursor: pointer;
+    }
+}
+
+div.active {
+    background-color: $color_2a34ff;
+    color: red;
+    cursor: not-allowed;
+  }

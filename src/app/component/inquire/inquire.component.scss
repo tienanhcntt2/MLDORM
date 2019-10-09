@@ -87,3 +87,21 @@ tr:nth-child(odd) {
   ::-webkit-scrollbar-thumb:hover {
     background: #38bdff;
   }
+
+  .btnClick:focus,.btnClick:active {
+    outline: none !important;
+    box-shadow: none;
+  }
+
+  ::ng-deep .mat-form-field-infix {
+    width: auto !important;
+    padding: 0px 0 !important;
+    border-top: 0px solid transparent !important;
+  }
+  .mat-form-field-infix{
+      display: block;
+      position: relative;
+      flex: auto;
+      padding: 0;
+      border-top: 0px solid transparent !important;
+  }
