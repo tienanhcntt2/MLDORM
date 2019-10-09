@@ -44,7 +44,7 @@
               formControlName="nodeIDManage" > -->
 
               <mat-form-field class="example-full-width">
-                  <input matInput class="form-control" aria-label="State" [matAutocomplete]="auto"  formControlName="nodeIDManage">
+                  <input matInput class="form-control"  [matAutocomplete]="auto"  formControlName="nodeIDManage">
                   <mat-autocomplete #auto="matAutocomplete">
                     <mat-option *ngFor="let state of filteredStates | async" [value]="state.idNode" (click) ="selectIDNode(state.fullName)">
                       <span>{{state.idNode}}</span> |
@@ -201,9 +201,9 @@
           <!-- <div class="col-3 col-md-1 col-form-label " style="padding-right: 0px !important">
             <button [disabled]="disableAbnormal" (click) ="selectAdnomol()">選擇</button>
           </div> -->
-          <div class="col-3 col-md-3">
+          <div class="col-1 col-md-1">
             <mat-form-field class="example-full-width">
-              <input matInput class="form-control" aria-label="State" [matAutocomplete]="autoID"  formControlName="idAbnormal" 
+              <input matInput class="form-control" [matAutocomplete]="autoID"  formControlName="idAbnormal" 
               [ngClass]="{ 'is-invalid': submitted && checkIdabnormal}" (keyup) ="eventIdNomarl($event)">
               <mat-autocomplete #autoID="matAutocomplete">
                 <mat-option *ngFor="let state of filteredAbnomarl | async" [value]="state.id" (click) ="selectIDAdnomarl(state.name)">
@@ -212,6 +212,9 @@
                 </mat-option>
               </mat-autocomplete>
             </mat-form-field>
+          </div>
+          <div class="col-3 col-md-1 col-form-label " style="padding-right: 0px !important">
+            <button [disabled]="!disableAbnormal" (click) ="selectAdnomol()">選擇</button>
           </div>
           <div class="col-3 col-md-3" style="padding-left: 0px !important">
             <input type="text" class="form-control" readonly="readonly" formControlName ="nameAdnormal"

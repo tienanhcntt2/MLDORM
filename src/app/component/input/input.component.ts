@@ -140,9 +140,9 @@ export class InputComponent implements OnInit {
    */
   private initConfig() {
     if (this.f.idAbnormal.value.length <= 0) {
-      this.disableAbnormal = true;
-    } else {
       this.disableAbnormal = false;
+    } else {
+      this.disableAbnormal = true;
     }
   }
 
@@ -548,13 +548,21 @@ export class InputComponent implements OnInit {
    * select id adnomarl
    * @param event 
    */
+  name: string ="";
   selectIDAdnomarl(event:any){
-    this.inputForm.get("nameAdnormal").setValue(event);
+    this.disableAbnormal = true;
+    this.name = event.target.value;
+    
+  }
+  selectAdnomol(){
+    alert(name);
+    this.inputForm.get("nameAdnormal").setValue(name);
   }
 
   eventIdNomarl(event:any){
     if(event.target.value.length<=0){
       this.inputForm.get("nameAdnormal").setValue("");
+      this.disableAbnormal = false;
     }
   }
 }
